@@ -42,44 +42,24 @@ function setupCodeSearch() {
   if (!form) return;
   form.addEventListener("submit", e => {
     e.preventDefault();
-    const p = findCode(document.getElementById("codeInput").value);
+    const inputEl = document.getElementById("codeInput");
     const msg = document.getElementById("searchMessage");
+    const raw = (inputEl && inputEl.value) || "";
+    const term = raw.trim();
+
+    // Only proceed if the input looks like a VAELT code (e.g. VAELT-001)
+    if (!/^VAELT-\d+/i.test(term)) {
+      // Clear any previous messages and do nothing for non-code terms
+      if (msg) msg.textContent = "";
+      return;
+    }
+
+    const p = findCode(term);
     if (p) {
-      msg.textContent = `Found ${p.brand} ${p.name} — ${p.code}`;
+      if (msg) msg.textContent = `Found ${p.brand} ${p.name} — ${p.code}`;
       window.location.href = `product.html?code=${encodeURIComponent(p.code)}`;
     } else {
-      msg.textContent = "No product matches that code. Check the code and try again.";
-    }
-  });
-}
-
-// Make the header search button functional and toggle the search area open/close.
-function setupTopSearch() {
-  const btn = document.getElementById('searchToggle');
-  const codeSection = document.querySelector('.code-search');
-  const input = document.getElementById('codeInput');
-  if (!btn || !codeSection) return;
-
-  // initialize aria state
-  btn.setAttribute('aria-expanded', 'false');
-
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    // Toggle an 'open' class on the search section — CSS can use this to show/hide it.
-    const isOpen = codeSection.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-
-    if (isOpen) {
-      // Ensure any legacy 'hidden' class is removed
-      if (codeSection.classList.contains('hidden')) codeSection.classList.remove('hidden');
-      // Scroll to the search area and focus the input for immediate typing
-      codeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => {
-        try { input && input.focus(); input && input.select && input.select(); } catch (err) {}
-      }, 200);
-    } else {
-      // Closing: blur the input so keyboard closes on mobile
-      try { input && input.blur(); } catch (err) {}
+      if (msg) msg.textContent = "No product matches that code. Check the code and try again.";
     }
   });
 }
@@ -138,7 +118,6 @@ function renderProductPage() {
 
 setupContact();
 setupCodeSearch();
-setupTopSearch();
 setupFilters();
 renderProducts();
 renderProductPage();
