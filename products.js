@@ -54,7 +54,7 @@ const products = [
     size: "UK 10",
     condition: "Excellent",
     image: "images/shoe-3.svg",
-    gallery: ["images/shoe-3.svg", "images/shoe-3-side.svg"],
+    gallery: ["images/nike-af1.jpg", "images/shoe-3-side.svg"],
     description: "Comfort-focused running pair with a lightweight feel. Add your own inspection notes here."
   },
   {
