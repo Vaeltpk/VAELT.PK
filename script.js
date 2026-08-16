@@ -102,7 +102,7 @@ function renderProductPage() {
           <div><span>CODE</span><strong>${p.code}</strong></div>
         </div>
         <p>${p.description}</p>
-        <a class="order-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask a[...]
+        <a class="order-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask [...]
         <p class="no-payment">No online payment required. Contact VAELT to order.</p>
       </div>
     </div>`;
@@ -116,8 +116,38 @@ function renderProductPage() {
   });
 }
 
+// Return Policy modal setup
+function setupReturnPolicy() {
+  const link = document.getElementById('returnPolicyLink');
+  const modal = document.getElementById('returnPolicyModal');
+  if (!link || !modal) return;
+
+  const closeButtons = modal.querySelectorAll('#returnPolicyClose, #returnPolicyClose2');
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+    const first = modal.querySelector('.close-btn');
+    if (first) first.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    link.focus();
+  }
+
+  link.addEventListener('click', e => { e.preventDefault(); openModal(); });
+  closeButtons.forEach(b => b.addEventListener('click', closeModal));
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+}
+
 setupContact();
 setupCodeSearch();
+setupReturnPolicy();
 setupFilters();
 renderProducts();
 renderProductPage();
