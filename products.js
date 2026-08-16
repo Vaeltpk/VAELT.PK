@@ -92,5 +92,17 @@ const products = [
     image: "images/shoe-6.svg",
     gallery: ["images/shoe-6.svg", "images/shoe-6-side.svg"],
     description: "Classic formal shoe listing. Replace this sample information with your actual pair."
-  }
+  },
+ {
+    code: "VAELT-007",
+    brand: "Leather Select",
+    name: "Oxford Classic",
+    category: "sneakers",
+    price: 2000,
+    size: "UK 9",
+    condition: "Excellent",
+    image: "images/hd-aspect-1469062506-air-jordan-31.jpg",
+    gallery: ["images/hd-aspect-1469062506-air-jordan-31.jpg", "images/shoe-7-side.svg"],
+    description: "Classic formal shoe listing. Replace this sample information with your actual pair."
+  },
 ];
