@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAELT — Preloved Footwear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <a class="logo" href="index.html">VAELT<span>.</span></a>
+  <nav>
+    <a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#about">About</a>
+  </nav>
+  <div class="header-actions">
+    <button id="searchToggle" aria-label="Search">⌕</button>
+    <a id="contactTop" href="#" target="_blank" class="contact-btn">Contact</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">PRELOVED • AUTHENTICITY-FIRST</p>
+    <h1>Old Kicks.<br><em>New Energy.</em></h1>
+    <p>Curated branded footwear, inspected and listed with a unique VAELT code.</p>
+    <a class="hero-btn" href="#shop">Explore collection</a>
+  </div>
+</section>
+
+<section class="code-search">
+  <div>
+    <span>FIND A PRODUCT</span>
+    <h2>Search by VAELT code</h2>
+  </div>
+  <form id="codeForm">
+    <input id="codeInput" placeholder="e.g. VAELT-001" autocomplete="off">
+    <button>Search</button>
+  </form>
+  <p id="searchMessage"></p>
+</section>
+
+<section id="categories" class="categories">
+  <button class="filter active" data-category="all">All</button>
+  <button class="filter" data-category="sneakers">Sneakers</button>
+  <button class="filter" data-category="running">Running</button>
+  <button class="filter" data-category="casual">Casual</button>
+  <button class="filter" data-category="formal">Formal</button>
+</section>
+
+<main id="shop" class="shop">
+  <div class="shop-head">
+    <div><p class="eyebrow">THE EDIT</p><h2>Latest drops</h2></div>
+    <span id="count"></span>
+  </div>
+  <div id="productsGrid" class="products-grid"></div>
+</main>
+
+<section id="about" class="about">
+  <p class="eyebrow">WHY VAELT</p>
+  <h2>Every pair gets its own identity.</h2>
+  <p>Each listing has a unique product code, clear condition details and multiple photos. No online payment is required — customers can contact you directly to order.</p>
+</section>
+
+<footer>
+  <div class="footer-brand"><strong>VAELT.</strong><p>Old Kicks. New Energy.</p></div>
+  <div><h4>CONTACT</h4><a id="contactFooter" href="#">WhatsApp / Phone</a></div>
+  <div><h4>STORE</h4><a href="#shop">All shoes</a><a href="#about">About VAELT</a></div>
+  <p class="copyright">© 2026 VAELT. All rights reserved.</p>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
