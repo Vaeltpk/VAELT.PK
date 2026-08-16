@@ -116,15 +116,23 @@ function renderProductPage() {
   });
 }
 
-// Return Policy modal setup
+// Return Policy modal setup — ensure policy text is injected when opening so it always appears
 function setupReturnPolicy() {
   const link = document.getElementById('returnPolicyLink');
   const modal = document.getElementById('returnPolicyModal');
   if (!link || !modal) return;
 
+  const body = modal.querySelector('.modal-body');
   const closeButtons = modal.querySelectorAll('#returnPolicyClose, #returnPolicyClose2');
 
+  const policyHtml = `
+    <p>All sales are final.</p>
+    <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirmed.</p>
+    <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.</p>
+  `;
+
   function openModal() {
+    if (body) body.innerHTML = policyHtml; // inject exact wording
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; // prevent background scroll
