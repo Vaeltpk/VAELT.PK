@@ -29,7 +29,7 @@ const products = [
     price: 6500,
     size: "UK 9",
     condition: "Excellent",
-    image: "images/shoe-1.svg",
+    image: "images/nike-af1.jpg",
     gallery: ["images/shoe-1.svg", "images/shoe-1-side.svg"],
     description: "Preloved Nike running shoes in excellent condition. Clean upper with comfortable cushioning and good outsole grip."
   },
