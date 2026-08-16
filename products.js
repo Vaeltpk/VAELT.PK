@@ -26,7 +26,7 @@ const products = [
     brand: "Nike",
     name: "Air Runner",
     category: "running",
-    price: 6500,
+    price: 2500,
     size: "UK 9",
     condition: "Excellent",
     image: "images/nike-af1.jpg",
