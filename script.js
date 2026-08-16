@@ -53,6 +53,32 @@ function setupCodeSearch() {
   });
 }
 
+// NEW: make the header search button functional by scrolling to the code search
+// section and focusing the input. This fixes the "upper search button not working" issue.
+function setupTopSearch() {
+  const btn = document.getElementById('searchToggle');
+  const codeSection = document.querySelector('.code-search');
+  const input = document.getElementById('codeInput');
+  if (!btn) return;
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // If code search is hidden via CSS, remove a 'hidden' class (no-op if not used)
+    if (codeSection && codeSection.classList.contains('hidden')) {
+      codeSection.classList.remove('hidden');
+    }
+    if (codeSection) {
+      codeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    if (input) {
+      // Small timeout to ensure scroll finished on some browsers before focusing
+      setTimeout(() => {
+        try { input.focus(); input.select && input.select(); } catch (err) {}
+      }, 200);
+    }
+  });
+}
+
 function setupFilters() {
   document.querySelectorAll(".filter").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -91,7 +117,7 @@ function renderProductPage() {
           <div><span>CODE</span><strong>${p.code}</strong></div>
         </div>
         <p>${p.description}</p>
-        <a class="order-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask about this pair</a>
+        <a class="order-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask a[...]
         <p class="no-payment">No online payment required. Contact VAELT to order.</p>
       </div>
     </div>`;
@@ -107,6 +133,7 @@ function renderProductPage() {
 
 setupContact();
 setupCodeSearch();
+setupTopSearch();
 setupFilters();
 renderProducts();
 renderProductPage();
