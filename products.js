@@ -30,7 +30,7 @@ const products = [
     size: "UK 9",
     condition: "Excellent",
     image: "images/nike-af1.jpg",
-    gallery: ["images/nike-af1.jpg", "images/shoe-1-side.svg"],
+    gallery: ["images/nike-af1.jpg"],
     description: "Preloved Nike running shoes in excellent condition. Clean upper with comfortable cushioning and good outsole grip."
   },
   {
@@ -41,8 +41,8 @@ const products = [
     price: 3000,
     size: "UK 7",
     condition: "Very Good",
-    image: "images/shoe-2.svg",
-    gallery: ["images/shoe-2.svg", "images/shoe-2-side.svg"],
+    image: "images/hd-aspect-1469062506-air-jordan-31.jpg",
+    gallery: ["images/hd-aspect-1469062506-air-jordan-31.jpg", "images/shoe-2-side.svg"],
     description: "Classic Adidas-inspired street sneaker listing. Replace the sample photos and details with your actual pair."
   },
   {
