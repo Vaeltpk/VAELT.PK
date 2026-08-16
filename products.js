@@ -42,7 +42,7 @@ const products = [
     size: "UK 7",
     condition: "Very Good",
     image: "images/hd-aspect-1469062506-air-jordan-31.jpg",
-    gallery: ["images/hd-aspect-1469062506-air-jordan-31.jpg", "images/shoe-2-side.svg"],
+    gallery: ["images/hd-aspect-1469062506-air-jordan-31.jpg", "images/14398178_21135409_1000.webp"],
     description: "Classic Adidas-inspired street sneaker listing. Replace the sample photos and details with your actual pair."
   },
   {
