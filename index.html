@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VAELT — Preloved Footwear</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Return Policy modal styles */
+    .vaelt-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:1200}
+    .vaelt-modal-backdrop.open{display:flex}
+    .vaelt-modal{background:#fff;max-width:720px;width:94%;border-radius:10px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);font-family:inherit;color:#171714}
+    .vaelt-modal h2{margin-top:0;font-size:1.2rem}
+    .vaelt-modal p{line-height:1.5;margin:10px 0}
+    .vaelt-modal .close-btn{background:#111;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;float:right}
+    .vaelt-modal .modal-footer{margin-top:12px;text-align:right}
+    @media (min-width:768px){.vaelt-modal{padding:28px}}
+  </style>
 </head>
 <body>
 <header class="header">
@@ -66,10 +77,39 @@
 
 <footer>
   <div class="footer-brand"><strong>VAELT.PK</strong><p>Old Kicks. New Energy.</p></div>
-  <div><h4>CONTACT</h4><a href="https://www.instagram.com/direct/t/18085834331276429/" target="_blank">Instagram</a><div class="footer-email">Vaelt.pk@gmail.com</div><a href="https://wa.me/9233512[...]"
-  <div><h4>STORE</h4><a href="#shop">All shoes</a><a href="#about">About VAELT</a></div>
+  <div>
+    <h4>CONTACT</h4>
+    <a href="https://www.instagram.com/direct/t/18085834331276429/" target="_blank">Instagram</a>
+    <div class="footer-email">Vaelt.pk@gmail.com</div>
+    <a id="contactFooter" href="#" target="_blank">WhatsApp</a>
+  </div>
+  <div>
+    <h4>STORE</h4>
+    <a href="#shop">All shoes</a>
+    <a href="#about">About VAELT</a>
+  </div>
+  <div>
+    <h4>POLICIES</h4>
+    <a id="returnPolicyLink" href="#">Return Policy</a>
+  </div>
   <p class="copyright">© 2026 VAELT. All rights reserved.</p>
 </footer>
+
+<!-- Return Policy modal -->
+<div id="returnPolicyModal" class="vaelt-modal-backdrop" aria-hidden="true">
+  <div class="vaelt-modal" role="dialog" aria-modal="true" aria-labelledby="rp-title">
+    <button class="close-btn" id="returnPolicyClose">Close</button>
+    <h2 id="rp-title">Return Policy</h2>
+    <div class="modal-body">
+      <p>All sales are final.</p>
+      <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirmed.</p>
+      <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="close-btn" id="returnPolicyClose2">Close</button>
+    </div>
+  </div>
+</div>
 
 <script src="products.js"></script>
 <script src="script.js"></script>
