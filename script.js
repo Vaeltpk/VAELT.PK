@@ -53,28 +53,33 @@ function setupCodeSearch() {
   });
 }
 
-// NEW: make the header search button functional by scrolling to the code search
-// section and focusing the input. This fixes the "upper search button not working" issue.
+// Make the header search button functional and toggle the search area open/close.
 function setupTopSearch() {
   const btn = document.getElementById('searchToggle');
   const codeSection = document.querySelector('.code-search');
   const input = document.getElementById('codeInput');
-  if (!btn) return;
+  if (!btn || !codeSection) return;
+
+  // initialize aria state
+  btn.setAttribute('aria-expanded', 'false');
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    // If code search is hidden via CSS, remove a 'hidden' class (no-op if not used)
-    if (codeSection && codeSection.classList.contains('hidden')) {
-      codeSection.classList.remove('hidden');
-    }
-    if (codeSection) {
+    // Toggle an 'open' class on the search section — CSS can use this to show/hide it.
+    const isOpen = codeSection.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+
+    if (isOpen) {
+      // Ensure any legacy 'hidden' class is removed
+      if (codeSection.classList.contains('hidden')) codeSection.classList.remove('hidden');
+      // Scroll to the search area and focus the input for immediate typing
       codeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    if (input) {
-      // Small timeout to ensure scroll finished on some browsers before focusing
       setTimeout(() => {
-        try { input.focus(); input.select && input.select(); } catch (err) {}
+        try { input && input.focus(); input && input.select && input.select(); } catch (err) {}
       }, 200);
+    } else {
+      // Closing: blur the input so keyboard closes on mobile
+      try { input && input.blur(); } catch (err) {}
     }
   });
 }
