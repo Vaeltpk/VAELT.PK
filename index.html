@@ -49,19 +49,19 @@
   <div class="hero__info" aria-hidden="false">
     <div class="hero__info-inner">
       <div class="hero__info-item">
-        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 11l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 11l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         <div class="info-text"><span class="label">AUTHENTICITY</span><strong>VERIFIED</strong></div>
       </div>
       <div class="hero__info-item">
-        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="0.6" fill="none"/></svg>
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         <div class="info-text"><span class="label">PRELOVED</span><strong>QUALITY</strong></div>
       </div>
       <div class="hero__info-item">
-        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 12c0 4 4 8 8 8s8-4 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4v4h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 12c0 4 4 8 8 8s8-4 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         <div class="info-text"><span class="label">SUSTAINABLE</span><strong>CHOICE</strong></div>
       </div>
       <div class="hero__info-item">
-        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 12s2-4 8-4 8 4 8 4-2 4-8 4S2 12 2 12z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 12s2-4 8-4 8 4 8 4-2 4-8 4S2 12 2 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         <div class="info-text"><span class="label">HANDPICKED</span><strong>KICKS</strong></div>
       </div>
     </div>
@@ -69,23 +69,27 @@
 </section>
 
 <section class="code-search">
-  <div>
-    <span>FIND A PRODUCT</span>
-    <h2>Search by VAELT code</h2>
+  <div class="code-search-inner">
+    <p class="eyebrow">FIND YOUR KICK</p>
+    <h2>SEARCH THE VAELT ARCHIVE</h2>
+    <p class="lead">Enter a VAELT code to discover the story, details, condition and authenticity information behind your pair.</p>
+
+    <form id="codeForm">
+      <input id="codeInput" placeholder="Enter VAELT code — e.g. VAELT-001" autocomplete="off">
+      <button type="submit" class="search-btn">SEARCH</button>
+    </form>
+
+    <p id="searchMessage" class="search-note">Every pair has a story.</p>
   </div>
-  <form id="codeForm">
-    <input id="codeInput" placeholder="e.g. VAELT-001" autocomplete="off">
-    <button>Search</button>
-  </form>
-  <p id="searchMessage"></p>
 </section>
 
 <section id="categories" class="categories">
-  <button class="filter active" data-category="all">All</button>
-  <button class="filter" data-category="sneakers">Sneakers</button>
-  <button class="filter" data-category="running">Running</button>
-  <button class="filter" data-category="casual">Casual</button>
-  <button class="filter" data-category="formal">Formal</button>
+  <h3 class="categories-heading">EXPLORE THE COLLECTION</h3>
+  <button class="filter active" data-category="all">ALL</button>
+  <button class="filter" data-category="sneakers">SNEAKERS</button>
+  <button class="filter" data-category="running">RUNNING</button>
+  <button class="filter" data-category="casual">CASUAL</button>
+  <button class="filter" data-category="formal">FORMAL</button>
 </section>
 
 <main id="shop" class="shop">
@@ -130,7 +134,7 @@
     <div class="modal-body">
       <p>All sales are final.</p>
       <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirme[...]</p>
-      <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.[...]</p>
+      <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.[....]</p>
     </div>
     <div class="modal-footer">
       <button class="close-btn" id="returnPolicyClose2">Close</button>
