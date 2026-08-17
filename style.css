@@ -5,6 +5,10 @@
   --secondary: #666;
   --border: #e0e0e0;
   --bg: #f9f9f9;
+  --overlay: rgba(0,0,0,0.55);
+  --overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 80%);
+  --hero-min-height-desktop: 80vh;
+  --hero-min-height-mobile: 60vh;
   --spacing: 16px;
 }
 
@@ -31,6 +35,33 @@ header {
   background: #fff;
   position: relative;
   z-index: 100;
+}
+
+/* Header style variant used on the homepage hero (blends over image) */
+header.header--overlay {
+  background: transparent;
+  border-bottom: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.header.header--overlay .logo,
+.header.header--overlay nav a {
+  color: rgba(255,255,255,0.95);
+}
+.header.header--overlay .logo span { color: rgba(255,255,255,0.75); }
+.header.header--overlay .contact-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+}
+.header.header--overlay .contact-btn:hover {
+  background: rgba(255,255,255,0.12);
 }
 
 .logo-container {
@@ -112,12 +143,14 @@ nav a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 600px;
+  min-height: var(--hero-min-height-desktop);
+  padding-top: 64px; /* leave space for overlay header */
 }
 
 .hero__bg {
   position: absolute;
   inset: 0;
+  /* switched to an existing shoe image in repository (no renames) */
   background-image: url('images/ChatGPT%20Image%20Aug%2016%2C%202026%2C%2006_13_08%20PM.png');
   background-size: cover;
   background-position: center;
@@ -130,15 +163,16 @@ nav a:hover {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  /* soft gradient overlay for improved contrast and editorial feel */
+  background: var(--overlay-gradient);
   z-index: 1;
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 80px var(--spacing);
+  max-width: 960px;
+  padding: 84px var(--spacing);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -157,17 +191,22 @@ nav a:hover {
 }
 
 .hero__content h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.1;
+  /* Editorial headline: very large on desktop, responsive down to mobile */
+  font-size: clamp(2.8rem, 8vw, 5.2rem);
+  line-height: 0.98;
   margin: 0;
-  font-weight: 800;
+  font-weight: 900;
   color: #fff;
+  letter-spacing: -0.02em;
 }
 
 .hero__content em {
   font-style: italic;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  display: block;
+  margin-top: 6px;
+  font-size: 0.92em;
 }
 
 .hero__content p {
@@ -180,13 +219,13 @@ nav a:hover {
 .hero__content .hero-btn {
   background: #fff !important;
   color: #111 !important;
-  padding: 12px 32px;
-  border-radius: 4px;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  padding: 12px 36px;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   display: inline-block;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: transform 260ms ease, box-shadow 260ms ease, opacity 200ms ease;
   width: fit-content;
   margin: 0 auto;
   border: none;
@@ -194,8 +233,9 @@ nav a:hover {
 }
 
 .hero__content .hero-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.28);
+  opacity: 0.98;
 }
 
 .hero__info {
@@ -203,17 +243,21 @@ nav a:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.56); /* lighter so shoe remains visible */
   z-index: 3;
-  padding: 32px var(--spacing);
+  padding: 28px var(--spacing);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(4px);
 }
 
 .hero__info-inner {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
 }
 
 .hero__info-item {
@@ -221,6 +265,10 @@ nav a:hover {
   align-items: center;
   gap: 16px;
   color: #fff;
+  padding: 6px 12px;
+  min-width: 160px;
+  justify-content: center;
+  transition: transform 220ms ease, opacity 220ms ease;
 }
 
 .info-icon {
@@ -228,6 +276,7 @@ nav a:hover {
   height: 24px;
   color: #fff;
   flex-shrink: 0;
+  opacity: 0.95;
 }
 
 .info-text .label {
@@ -245,6 +294,18 @@ nav a:hover {
   font-size: 13px;
   font-weight: 700;
   color: #fff;
+}
+
+/* separators between feature items (desktop) */
+.hero__info-inner .hero__info-item + .hero__info-item {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  margin-left: 16px;
+  padding-left: 20px;
+}
+
+.hero__info-item:hover {
+  transform: translateY(-4px);
+  opacity: 0.98;
 }
 
 /* Entrance animation */
@@ -270,19 +331,29 @@ nav a:hover {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 500px;
+    min-height: var(--hero-min-height-mobile);
   }
   .hero__content {
     padding: 48px var(--spacing);
   }
   .hero__content h1 {
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-size: clamp(1.6rem, 8vw, 2.6rem);
   }
   .hero__info {
     padding: 24px var(--spacing);
   }
   .hero__info-inner {
-    gap: 20px;
+    gap: 12px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  /* remove separators on small screens */
+  .hero__info-inner .hero__info-item + .hero__info-item {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    padding-top: 12px;
   }
 }
 
