@@ -134,228 +134,216 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  position: relative;
-  overflow: hidden;
-  background: none;
-  text-align: center;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: var(--hero-min-height-desktop);
-  padding-top: 64px; /* leave space for overlay header */
+  min-height: 680px;
+  padding: 100px 20px 150px;
+  box-sizing: border-box;
 }
 
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  /* switched to an existing shoe image in repository (no renames) */
-  background-image: url('images/ChatGPT%20Image%20Aug%2016%2C%202026%2C%2006_13_08%20PM.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 0;
-  will-change: transform, opacity;
-  transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease;
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  /* soft gradient overlay for improved contrast and editorial feel */
-  background: var(--overlay-gradient);
-  z-index: 1;
-}
-
+/* Keep hero content completely inside the hero */
 .hero__content {
   position: relative;
-  z-index: 2;
-  max-width: 960px;
-  padding: 84px var(--spacing);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  text-align: center;
-}
-
-.hero__content .eyebrow {
-  color: rgba(255, 255, 255, 0.95);
-  letter-spacing: 0.15em;
-  font-weight: 700;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.hero__content h1 {
-  /* Editorial headline: very large on desktop, responsive down to mobile */
-  font-size: clamp(2.8rem, 8vw, 5.2rem);
-  line-height: 0.98;
-  margin: 0;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
-
-.hero__content em {
-  font-style: italic;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-  display: block;
-  margin-top: 6px;
-  font-size: 0.92em;
-}
-
-.hero__content p {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 1.05rem;
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
-
-.hero__content .hero-btn {
-  background: #fff !important;
-  color: #111 !important;
-  padding: 12px 36px;
-  border-radius: 999px;
-  font-weight: 800;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  text-decoration: none;
-  transition: transform 260ms ease, box-shadow 260ms ease, opacity 200ms ease;
-  width: fit-content;
+  z-index: 5;
+  width: min(900px, 92%);
   margin: 0 auto;
-  border: none;
-  cursor: pointer;
+  transform: translateY(-15px);
 }
 
-.hero__content .hero-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 46px rgba(0,0,0,0.28);
-  opacity: 0.98;
+/* Main heading */
+.hero__content h1 {
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.98;
+  margin: 14px 0 22px;
 }
 
+/* Italic second line */
+.hero__content h1 em {
+  display: inline-block;
+  font-size: 0.95em;
+}
+
+/* Description */
+.hero__content p {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.6;
+}
+
+/* Explore button */
+.hero__content .hero-btn {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 30px;
+  margin-top: 5px;
+}
+
+/* Bottom information strip */
 .hero__info {
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.56); /* lighter so shoe remains visible */
-  z-index: 3;
-  padding: 28px var(--spacing);
-  border-top: 1px solid rgba(255,255,255,0.04);
-  backdrop-filter: blur(4px);
+  bottom: 0;
+  z-index: 20;
+  height: auto;
+  min-height: 105px;
+  box-sizing: border-box;
 }
 
+/* Four information items */
 .hero__info-inner {
-  max-width: 1200px;
+  width: min(1100px, 94%);
+  min-height: 105px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
 }
 
+/* Individual item */
 .hero__info-item {
+  min-height: 68px;
+  padding: 12px 25px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 16px;
-  color: #fff;
-  padding: 6px 12px;
-  min-width: 160px;
   justify-content: center;
-  transition: transform 220ms ease, opacity 220ms ease;
+  gap: 16px;
 }
 
-.info-icon {
-  width: 24px;
-  height: 24px;
-  color: #fff;
+/* Make dividers clean */
+.hero__info-item + .hero__info-item {
+  border-left: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Icons */
+.hero__info-item .info-icon {
   flex-shrink: 0;
-  opacity: 0.95;
 }
 
-.info-text .label {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 4px;
+/* Text */
+.hero__info-item .info-text {
+  text-align: left;
 }
 
-.info-text strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-}
+/* =========================================
+   TABLET
+   ========================================= */
 
-/* separators between feature items (desktop) */
-.hero__info-inner .hero__info-item + .hero__info-item {
-  border-left: 1px solid rgba(255,255,255,0.08);
-  margin-left: 16px;
-  padding-left: 20px;
-}
+@media (max-width: 900px) {
 
-.hero__info-item:hover {
-  transform: translateY(-4px);
-  opacity: 0.98;
-}
-
-/* Entrance animation */
-.hero__bg {
-  transform: scale(1);
-  opacity: 0.98;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hero__content {
-    transform: translateY(8px);
-    opacity: 0;
-    transition: opacity 520ms cubic-bezier(.2, .9, .2, 1), transform 520ms cubic-bezier(.2, .9, .2, 1);
-  }
-  .hero.is-loaded .hero__content {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  .hero.is-loaded .hero__bg {
-    transform: scale(1.02);
-  }
-}
-
-@media (max-width: 768px) {
   .hero {
-    min-height: var(--hero-min-height-mobile);
+    min-height: 650px;
+    padding-top: 100px;
+    padding-bottom: 135px;
   }
-  .hero__content {
-    padding: 48px var(--spacing);
-  }
+
   .hero__content h1 {
-    font-size: clamp(1.6rem, 8vw, 2.6rem);
+    font-size: clamp(48px, 9vw, 72px);
   }
+
   .hero__info {
-    padding: 24px var(--spacing);
+    min-height: 100px;
   }
+
   .hero__info-inner {
-    gap: 12px;
-    flex-direction: column;
-    align-items: stretch;
+    min-height: 100px;
   }
-  /* remove separators on small screens */
-  .hero__info-inner .hero__info-item + .hero__info-item {
-    border-left: none;
-    margin-left: 0;
-    padding-left: 0;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    padding-top: 12px;
+
+  .hero__info-item {
+    padding: 10px 12px;
+    gap: 9px;
+  }
+
+  .hero__info-item .info-text .label {
+    font-size: 10px;
+  }
+
+  .hero__info-item .info-text strong {
+    font-size: 14px;
   }
 }
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 720px;
+    padding: 105px 18px 230px;
+  }
+
+  .hero__content {
+    transform: translateY(-5px);
+  }
+
+  .hero__content h1 {
+    font-size: clamp(42px, 13vw, 60px);
+    line-height: 0.98;
+    margin-bottom: 20px;
+  }
+
+  .hero__content p {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  .hero__content .hero-btn {
+    min-height: 48px;
+    padding: 12px 22px;
+    font-size: 12px;
+  }
+
+  .hero__info {
+    min-height: 205px;
+  }
+
+  .hero__info-inner {
+    width: 100%;
+    min-height: 205px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__info-item {
+    min-height: 95px;
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
+  .hero__info-item:nth-child(3) {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .hero__info-item:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .hero__info-item .info-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero__info-item .info-text {
+    text-align: center;
+  }
+
+  .hero__info-item .info-text .label {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .hero__info-item .info-text strong {
+    font-size: 13px;
+  }
+}
+
 
 /* Code Search Section */
 .code-search {
