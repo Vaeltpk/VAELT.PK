@@ -106,7 +106,6 @@ function renderProductPage() {
           <a class="order-btn instagram-btn" href="https://www.instagram.com/direct/t/18085834331276429/" target="_blank" onclick="alert('Hi VAELT 👋 I\'m interested in this pair. Is it still available? 👟\n\nProduct: ${p.brand} ${p.name}\nCode: ${p.code}')">Ask on Instagram 📸</a>
           <a class="order-btn whatsapp-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask on WhatsApp</a>
         </div>
-        <p class="no-payment">Contact VAELT to order.</p>
       </div>
     </div>`;
 
