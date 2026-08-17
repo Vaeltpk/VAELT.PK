@@ -672,3 +672,115 @@ footer a:hover {
     gap: 24px;
   }
 }
+
+
+/* ===== VAELT — Hero background + overlay (appended) ===== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  /* keep existing padding/height — we don't set a fixed height so existing layout stays intact */
+  background: none; /* remove previous gradient so bg image shows */
+  text-align: left;  /* editorial layout: left aligned on wide screens */
+  color: #fff;
+}
+
+/* image layer (preserves aspect, cover, no distortion) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/hd-aspect-1469062506-air-jordan-31.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+  transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease;
+}
+
+/* subtle dark/gray overlay for readable text */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12,12,12,0.36); /* tweak opacity between 0.28 - 0.46 if needed */
+  z-index: 1;
+}
+
+/* content sits above image+overlay, preserves existing spacing */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px var(--spacing); /* matches existing hero padding */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* make eyebrow/title/subtitle more editorial + readable */
+.hero__content .eyebrow {
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.hero__content h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.02;
+  margin: 0;
+  font-weight: 800;
+  color: #fff;
+}
+
+.hero__content em { 
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+  opacity: 0.95;
+}
+
+/* subtitle */
+.hero__content p {
+  color: rgba(255,255,255,0.94);
+  max-width: 60ch;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+/* CTA - invert to white for contrast on dark overlay */
+.hero__content .hero-btn {
+  background: #fff !important;
+  color: #111 !important;
+  padding: 0.8rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+  display: inline-block;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.hero__content .hero-btn:hover,
+.hero__content .hero-btn:focus { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.22); }
+
+/* entrance animation */
+.hero__bg { transform: scale(1); opacity: 0.98; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero { /* initial state handled by JS adding .is-loaded on DOM ready */ }
+  .hero__content { transform: translateY(8px); opacity: 0; transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1); }
+  .hero.is-loaded .hero__content { transform: translateY(0); opacity: 1; }
+  .hero.is-loaded .hero__bg { transform: scale(1.02); }
+}
+
+/* mobile tweaks: keep centered and readable */
+@media (max-width: 720px) {
+  .hero { text-align: center; }
+  .hero__content { padding: 48px var(--spacing); align-items: center; }
+  .hero__content h1 { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+  .hero__content p { font-size: 0.98rem; text-align: center; }
+}
