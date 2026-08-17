@@ -33,11 +33,14 @@
 </header>
 
 <section class="hero">
-  <div>
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__content">
     <p class="eyebrow">PRELOVED • AUTHENTICITY-FIRST</p>
     <h1>Old Kicks.<br><em>New Energy.</em></h1>
     <p>Curated branded footwear, inspected and listed with a unique VAELT code.</p>
-    <a class="hero-btn" href="#shop">Explore collection</a>
+    <a class="hero-btn" href="#shop">EXPLORE COLLECTION</a>
   </div>
 </section>
 
@@ -102,7 +105,7 @@
     <h2 id="rp-title">Return Policy</h2>
     <div class="modal-body">
       <p>All sales are final.</p>
-      <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirmed.</p>
+      <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirme[...]</p>
       <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.</p>
     </div>
     <div class="modal-footer">
@@ -113,5 +116,15 @@
 
 <script src="products.js"></script>
 <script src="script.js"></script>
+<script>
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.addEventListener('DOMContentLoaded', function(){
+      var hero = document.querySelector('.hero');
+      if (!hero) return;
+      requestAnimationFrame(function(){ setTimeout(function(){ hero.classList.add('is-loaded'); }, 60); });
+    });
+  })();
+</script>
 </body>
 </html>
