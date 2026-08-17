@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAELT — Preloved Footwear</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Premium system font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Return Policy modal styles */
+    .vaelt-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:1200}
+    .vaelt-modal-backdrop.open{display:flex}
+    .vaelt-modal{background:#fff;max-width:720px;width:94%;border-radius:10px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,0.25);font-family:inherit;color:#171714}
+    .vaelt-modal h2{margin-top:0;font-size:1.2rem}
+    .vaelt-modal p{line-height:1.5;margin:10px 0}
+    .vaelt-modal .close-btn{background:#111;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;float:right}
+    .vaelt-modal .modal-footer{margin-top:12px;text-align:right}
+    @media (min-width:768px){.vaelt-modal{padding:28px}}
+
+    /* Header search */
+    .header-search-icon{
+      border:0;
+      background:transparent;
+      color:inherit;
+      padding:0;
+      margin:0 8px;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .header-search-icon:hover{opacity:.7}
+
+    /* Header search modal */
+    .vaelt-search-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1500;
+      padding:20px;
+      box-sizing:border-box;
+    }
+    .vaelt-search-backdrop.open{display:flex}
+    .vaelt-search-box{
+      position:relative;
+      width:min(560px,94vw);
+      background:#fff;
+      color:#111;
+      padding:38px 30px 30px;
+      box-sizing:border-box;
+      box-shadow:0 15px 50px rgba(0,0,0,.35);
+    }
+    .vaelt-search-box h2{margin:4px 0 22px;font-size:30px}
+    .vaelt-search-form{display:flex;gap:10px}
+    .vaelt-search-form input{
+      flex:1;
+      min-width:0;
+      height:52px;
+      box-sizing:border-box;
+      border:1px solid #ccc;
+      padding:0 14px;
+      font:inherit;
+      color:#111;
+      background:#fff;
+    }
+    .vaelt-search-form button{
+      height:52px;
+      border:0;
+      padding:0 22px;
+      background:#111;
+      color:#fff;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .vaelt-search-message{margin:14px 0 0;color:#111;min-height:22px}
+    .vaelt-search-close{
+      position:absolute;
+      top:8px;
+      right:12px;
+      border:0;
+      background:transparent;
+      color:#111;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+    }
+    @media(max-width:600px){
+      .vaelt-search-form{flex-direction:column}
+      .vaelt-search-form button{width:100%}
+    }
+  </style>
+</head>
+<body>
+
+<header class="header header--overlay">
+  <div class="logo-container">
+    <a class="logo" href="index.html">VAELT.PK<span>.</span></a>
+  </div>
+
+  <div class="header-actions">
+    <a href="https://www.instagram.com/vaelt.pk/" target="_blank" class="contact-btn" aria-label="Instagram">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="17.3" cy="6.7" r="1" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <button id="searchIconBtn" class="header-search-icon" type="button" aria-label="Search" aria-controls="searchModal" aria-expanded="false">
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <a id="contactTop" href="#" target="_blank" class="contact-btn">Contact</a>
+  </div>
+</header>
+
+<!-- Header search popup -->
+<div id="searchModal" class="vaelt-search-backdrop" aria-hidden="true">
+  <div class="vaelt-search-box" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <button id="searchClose" class="vaelt-search-close" type="button" aria-label="Close search">×</button>
+    <p class="eyebrow">VAELT ARCHIVE</p>
+    <h2 id="search-title">SEARCH</h2>
+
+    <form id="codeForm" class="vaelt-search-form">
+      <input id="codeInput" type="text" placeholder="Enter VAELT code — e.g. VAELT-001" autocomplete="off">
+      <button type="submit">SEARCH</button>
+    </form>
+
+    <p id="searchMessage" class="vaelt-search-message"></p>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <p class="eyebrow">PRELOVED • AUTHENTICITY-FIRST</p>
+    <h1>Old Kicks.<br><em>New Energy.</em></h1>
+    <p>Curated branded footwear, inspected and listed with a unique VAELT code.</p>
+    <a class="hero-btn" href="#shop">EXPLORE COLLECTION</a>
+  </div>
+
+  <!-- Bottom info strip: AUTHENTICITY / PRELOVED / SUSTAINABLE / HANDPICKED -->
+  <div class="hero__info" aria-hidden="false">
+    <div class="hero__info-inner">
+
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 11l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div class="info-text">
+          <span class="label">AUTHENTICITY</span>
+          <strong>VERIFIED</strong>
+        </div>
+      </div>
+
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div class="info-text">
+          <span class="label">PRELOVED</span>
+          <strong>QUALITY</strong>
+        </div>
+      </div>
+
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 12c0 4 4 8 8 8s8-4 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div class="info-text">
+          <span class="label">SUSTAINABLE</span>
+          <strong>CHOICE</strong>
+        </div>
+      </div>
+
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 12s2-4 8-4 8 4 8 4-2 4-8 4S2 12 2 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div class="info-text">
+          <span class="label">HANDPICKED</span>
+          <strong>KICKS</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="categories">
+  <h3 class="categories-heading">EXPLORE THE COLLECTION</h3>
+  <button class="filter active" data-category="all">ALL</button>
+  <button class="filter" data-category="sneakers">SNEAKERS</button>
+  <button class="filter" data-category="running">RUNNING</button>
+  <button class="filter" data-category="casual">CASUAL</button>
+  <button class="filter" data-category="formal">FORMAL</button>
+</section>
+
+<main id="shop" class="shop">
+  <div class="shop-head">
+    <div>
+      <p class="eyebrow">THE EDIT</p>
+      <h2>Latest drops</h2>
+    </div>
+    <span id="count"></span>
+  </div>
+
+  <div id="productsGrid" class="products-grid"></div>
+</main>
+
+<section id="about" class="about">
+  <div class="about-watermark" aria-hidden="true">VAELT</div>
+
+  <div class="about-header">
+    <p class="eyebrow">THE VAELT STANDARD</p>
+
+    <h2>
+      Not just a pair.
+      <span>A piece of the story.</span>
+    </h2>
+
+    <div class="about-line"></div>
+
+    <p class="about-intro">
+      VAELT is built around carefully selected pre-loved footwear.
+      Every pair is inspected, documented and given its own identity —
+      so you know exactly what you're getting.
+    </p>
+  </div>
+
+  <div class="about-features">
+
+    <div class="about-feature">
+      <div class="feature-icon">✓</div>
+      <span class="feature-number">01</span>
+      <div class="feature-line"></div>
+      <h3>VERIFIED</h3>
+      <p>
+        Every pair is carefully checked before it becomes part of VAELT.
+      </p>
+    </div>
+
+    <div class="about-feature">
+      <div class="feature-icon">↻</div>
+      <span class="feature-number">02</span>
+      <div class="feature-line"></div>
+      <h3>PRE-LOVED</h3>
+      <p>
+        Good shoes deserve another chapter. We give quality pairs a second life.
+      </p>
+    </div>
+
+    <div class="about-feature">
+      <div class="feature-icon">◎</div>
+      <span class="feature-number">03</span>
+      <div class="feature-line"></div>
+      <h3>INDIVIDUAL</h3>
+      <p>
+        Every listing has its own VAELT code, condition details and photos.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="about-bottom">
+    <span></span>
+    <strong>V A E L T</strong>
+    <span></span>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <strong>VAELT.PK</strong>
+    <p>Old Kicks. New Energy.</p>
+  </div>
+
+  <div>
+    <h4>CONTACT</h4>
+    <a href="https://www.instagram.com/direct/t/18085834331276429/" target="_blank">Instagram</a>
+    <div class="footer-email">Vaelt.pk@gmail.com</div>
+    <a id="contactFooter" href="#" target="_blank">WhatsApp</a>
+  </div>
+
+  <div>
+    <h4>STORE</h4>
+    <a href="#shop">All shoes</a>
+    <a href="#about">About VAELT</a>
+  </div>
+
+  <div>
+    <h4>POLICIES</h4>
+    <a id="returnPolicyLink" href="#">Return Policy</a>
+  </div>
+
+  <p class="copyright">© 2026 VAELT. All rights reserved.</p>
+</footer>
+
+<!-- Return Policy modal -->
+<div id="returnPolicyModal" class="vaelt-modal-backdrop" aria-hidden="true">
+  <div class="vaelt-modal" role="dialog" aria-modal="true" aria-labelledby="rp-title">
+    <button class="close-btn" id="returnPolicyClose">Close</button>
+
+    <h2 id="rp-title">Return Policy</h2>
+
+    <div class="modal-body">
+      <p>All sales are final.</p>
+      <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirme[...]</p>
+      <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.[....]</p>
+    </div>
+
+    <div class="modal-footer">
+      <button class="close-btn" id="returnPolicyClose2">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+<script>
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var hero = document.querySelector('.hero');
+      if (!hero) return;
+
+      requestAnimationFrame(function(){
+        setTimeout(function(){
+          hero.classList.add('is-loaded');
+        }, 60);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var openBtn = document.getElementById('searchIconBtn');
+      var closeBtn = document.getElementById('searchClose');
+      var modal = document.getElementById('searchModal');
+      var input = document.getElementById('codeInput');
+
+      if (!openBtn || !modal) return;
+
+      function openSearch(){
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        openBtn.setAttribute('aria-expanded', 'true');
+        setTimeout(function(){
+          if (input) input.focus();
+        }, 50);
+      }
+
+      function closeSearch(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        openBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      openBtn.addEventListener('click', openSearch);
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeSearch);
+      }
+
+      modal.addEventListener('click', function(e){
+        if (e.target === modal) closeSearch();
+      });
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
+          closeSearch();
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
