@@ -1745,7 +1745,4 @@ footer a:hover {
     width: 24px;
     height: 24px;
   }
-}
-.header.header--overlay .header-actions a:first-child::before {
-  display: none !important;
-}
+
