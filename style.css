@@ -1227,3 +1227,449 @@ footer a:hover {
     gap: 24px;
   }
 }
+
+/* =========================================================
+   VAELT HOMEPAGE — REFERENCE DESIGN OVERRIDES
+   Added to match the dark sneaker hero shown in the reference.
+   Put your hero sneaker image at: images/hero-sneaker.jpg
+   ========================================================= */
+
+:root {
+  --vaelt-black: #080808;
+  --vaelt-white: #ffffff;
+  --vaelt-line: rgba(255,255,255,.28);
+}
+
+/* ---------- Header ---------- */
+.header.header--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 92px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,.18);
+  border-bottom: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.header.header--overlay .logo {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #fff;
+}
+
+.header.header--overlay nav {
+  gap: 72px;
+  margin: 0;
+}
+
+.header.header--overlay nav a {
+  position: relative;
+  color: rgba(255,255,255,.94);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.header.header--overlay nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .25s ease;
+}
+
+.header.header--overlay nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.header.header--overlay .header-actions {
+  gap: 28px;
+}
+
+.header.header--overlay #searchToggle {
+  color: #fff;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.header.header--overlay .contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 126px;
+  height: 52px;
+  padding: 0 20px;
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header.header--overlay .contact-btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 94vh;
+  height: 940px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080808;
+  color: #fff;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("images/ChatGPT Image Aug 16, 2026, 06_13_08 PM.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.01);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.68) 0%, rgba(0,0,0,.34) 52%, rgba(0,0,0,.48) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.08) 38%, rgba(0,0,0,.72) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 5;
+  width: min(900px, 90%);
+  margin: 0 auto;
+  padding: 70px 0 150px;
+  text-align: center;
+  transform: none;
+}
+
+.hero__content .eyebrow {
+  margin-bottom: 36px;
+  color: rgba(255,255,255,.94);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: .34em;
+}
+
+.hero__content h1 {
+  margin: 0 0 30px;
+  color: #fff;
+  font-size: clamp(70px, 8.5vw, 132px);
+  font-weight: 800;
+  line-height: .88;
+  letter-spacing: -.065em;
+  text-shadow: 0 3px 25px rgba(0,0,0,.2);
+}
+
+.hero__content h1 em {
+  display: block;
+  margin-top: 16px;
+  font-size: .82em;
+  font-weight: 300;
+  letter-spacing: -.055em;
+}
+
+.hero__content > p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  color: rgba(255,255,255,.94);
+  font-size: clamp(16px, 1.4vw, 21px);
+  line-height: 1.65;
+}
+
+.hero__content .hero-btn {
+  min-width: 335px;
+  min-height: 72px;
+  padding: 0 35px;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .24em;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.hero__content .hero-btn:hover {
+  background: #f1f1f1;
+  color: #111;
+  transform: translateY(-3px);
+}
+
+/* ---------- Bottom feature strip ---------- */
+.hero__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  min-height: 138px;
+  padding: 0 4vw;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.16) 100%);
+}
+
+.hero__info-inner {
+  width: min(1240px, 100%);
+  min-height: 138px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+.hero__info-item {
+  min-height: 72px;
+  padding: 10px 28px;
+  gap: 17px;
+  justify-content: flex-start;
+}
+
+.hero__info-item + .hero__info-item {
+  border-left: 1px solid var(--vaelt-line);
+}
+
+.hero__info-item .info-icon {
+  width: 31px;
+  height: 31px;
+  color: #fff;
+}
+
+.hero__info-item .info-text {
+  color: #fff;
+}
+
+.hero__info-item .info-text .label,
+.hero__info-item .info-text strong {
+  display: inline;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: .19em;
+}
+
+.hero__info-item .info-text strong {
+  margin-left: 5px;
+  font-weight: 800;
+}
+
+/* ---------- Make the next section feel like the reference ---------- */
+.code-search {
+  padding: 82px 20px;
+}
+
+.categories {
+  padding-top: 70px;
+}
+
+.shop {
+  padding-top: 30px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 900px) {
+  .header.header--overlay {
+    height: 78px;
+    padding: 0 20px;
+  }
+
+  .header.header--overlay nav {
+    gap: 25px;
+  }
+
+  .header.header--overlay .header-actions {
+    gap: 12px;
+  }
+
+  .header.header--overlay .contact-btn {
+    min-width: auto;
+    height: 44px;
+    padding: 0 13px;
+  }
+
+  .hero {
+    min-height: 850px;
+    height: 850px;
+  }
+
+  .hero__content {
+    padding: 40px 0 170px;
+  }
+
+  .hero__content .eyebrow {
+    margin-bottom: 27px;
+    font-size: 12px;
+    letter-spacing: .22em;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(54px, 11vw, 88px);
+  }
+
+  .hero__content > p:not(.eyebrow) {
+    max-width: 620px;
+    font-size: 15px;
+  }
+
+  .hero__content .hero-btn {
+    min-width: 280px;
+    min-height: 60px;
+  }
+
+  .hero__info {
+    min-height: 190px;
+  }
+
+  .hero__info-inner {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header.header--overlay {
+    height: 72px;
+    padding: 0 16px;
+  }
+
+  .header.header--overlay .logo {
+    font-size: 21px;
+  }
+
+  .header.header--overlay nav {
+    display: none;
+  }
+
+  .header.header--overlay .header-actions {
+    gap: 7px;
+  }
+
+  .header.header--overlay #searchToggle {
+    font-size: 23px;
+  }
+
+  .header.header--overlay .contact-btn {
+    height: 38px;
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 760px;
+    height: 760px;
+  }
+
+  .hero__bg {
+    background-position: 60% center;
+  }
+
+  .hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,.38)),
+      linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.76));
+  }
+
+  .hero__content {
+    width: 92%;
+    padding: 20px 0 210px;
+  }
+
+  .hero__content .eyebrow {
+    margin-bottom: 24px;
+    font-size: 10px;
+    letter-spacing: .18em;
+  }
+
+  .hero__content h1 {
+    margin-bottom: 25px;
+    font-size: clamp(47px, 14vw, 72px);
+  }
+
+  .hero__content h1 em {
+    margin-top: 10px;
+  }
+
+  .hero__content > p:not(.eyebrow) {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+
+  .hero__content .hero-btn {
+    min-width: 245px;
+    min-height: 56px;
+    padding: 0 20px;
+    font-size: 10px;
+    letter-spacing: .17em;
+  }
+
+  .hero__info {
+    min-height: 190px;
+    padding: 0;
+  }
+
+  .hero__info-inner {
+    min-height: 190px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__info-item {
+    min-height: 95px;
+    padding: 10px 8px;
+    gap: 7px;
+    justify-content: center;
+  }
+
+  .hero__info-item + .hero__info-item {
+    border-left: 1px solid rgba(255,255,255,.2);
+  }
+
+  .hero__info-item:nth-child(3) {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,.2);
+  }
+
+  .hero__info-item:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,.2);
+  }
+
+  .hero__info-item .info-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .hero__info-item .info-text {
+    text-align: left;
+  }
+
+  .hero__info-item .info-text .label,
+  .hero__info-item .info-text strong {
+    font-size: 8px;
+    letter-spacing: .09em;
+  }
+}
