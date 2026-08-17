@@ -1673,3 +1673,23 @@ footer a:hover {
     letter-spacing: .09em;
   }
 }
+.header.header--overlay {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 32px !important;
+}
+
+.header.header--overlay nav {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 55px !important;
+  margin: 0 !important;
+}
+
+.header.header--overlay .header-actions {
+  margin-left: auto !important;
+  display: flex !important;
+  gap: 18px !important;
+}
