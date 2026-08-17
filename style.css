@@ -1746,3 +1746,6 @@ footer a:hover {
     height: 24px;
   }
 }
+.header.header--overlay .header-actions a:first-child::before {
+  display: none !important;
+}
