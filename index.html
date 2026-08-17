@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VAELT — Preloved Footwear</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Premium system font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     /* Return Policy modal styles */
     .vaelt-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:1200}
@@ -18,7 +20,7 @@
   </style>
 </head>
 <body>
-<header class="header">
+<header class="header header--overlay">
   <div class="logo-container">
     <a class="logo" href="index.html">VAELT.PK<span>.</span></a>
   </div>
@@ -41,6 +43,28 @@
     <h1>Old Kicks.<br><em>New Energy.</em></h1>
     <p>Curated branded footwear, inspected and listed with a unique VAELT code.</p>
     <a class="hero-btn" href="#shop">EXPLORE COLLECTION</a>
+  </div>
+
+  <!-- Bottom info strip: AUTHENTICITY / PRELOVED / SUSTAINABLE / HANDPICKED -->
+  <div class="hero__info" aria-hidden="false">
+    <div class="hero__info-inner">
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 11l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="info-text"><span class="label">AUTHENTICITY</span><strong>VERIFIED</strong></div>
+      </div>
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="0.6" fill="none"/></svg>
+        <div class="info-text"><span class="label">PRELOVED</span><strong>QUALITY</strong></div>
+      </div>
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 12c0 4 4 8 8 8s8-4 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4v4h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="info-text"><span class="label">SUSTAINABLE</span><strong>CHOICE</strong></div>
+      </div>
+      <div class="hero__info-item">
+        <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 12s2-4 8-4 8 4 8 4-2 4-8 4S2 12 2 12z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="info-text"><span class="label">HANDPICKED</span><strong>KICKS</strong></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -106,7 +130,7 @@
     <div class="modal-body">
       <p>All sales are final.</p>
       <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirme[...]</p>
-      <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.</p>
+      <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.[...]</p>
     </div>
     <div class="modal-footer">
       <button class="close-btn" id="returnPolicyClose2">Close</button>
