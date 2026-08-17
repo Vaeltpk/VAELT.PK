@@ -28,7 +28,7 @@ const products = [
     category: "running",
     price: "500",
     size: "6 foot",
-    condition: "Excellent",
+    condition: "muthal",
     image: "images/Capture.PNG",
     gallery: ["images/Capture.PNG"],
     description: "Preloved Nike running shoes in excellent condition. Clean upper with comfortable cushioning and good outsole grip."
