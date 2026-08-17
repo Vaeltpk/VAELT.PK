@@ -27,11 +27,40 @@
   </div>
 
   <div class="header-actions">
-    <a href="https://www.instagram.com/vaelt.pk/" target="_blank" class="contact-btn">Instagram</a>
-    <a id="contactTop" href="#" target="_blank" class="contact-btn">Contact</a>
+  <button id="searchIconBtn" class="header-search-icon" type="button" aria-label="Search">
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<a href="https://www.instagram.com/vaelt.pk/" target="_blank" class="contact-btn" aria-label="Instagram">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="17.3" cy="6.7" r="1" fill="currentColor"/>
+  </svg>
+</a>
+
+<a id="contactTop" href="#" target="_blank" class="contact-btn">Contact</a>
   </div>
 </header>
 
+  <div id="searchModal" class="vaelt-search-backdrop" aria-hidden="true">
+  <div class="vaelt-search-box">
+    <button id="searchClose" class="vaelt-search-close" type="button">×</button>
+
+    <p class="eyebrow">VAELT ARCHIVE</p>
+    <h2>SEARCH</h2>
+
+    <form id="codeForm">
+      <input id="codeInput" type="text" placeholder="Enter VAELT code — e.g. VAELT-001" autocomplete="off">
+      <button type="submit">SEARCH</button>
+    </form>
+
+    <p id="searchMessage"></p>
+  </div>
+</div>
 <section class="hero">
   <div class="hero__bg" aria-hidden="true"></div>
   <div class="hero__overlay" aria-hidden="true"></div>
@@ -91,20 +120,7 @@
   </div>
 </section>
 
-<section class="code-search">
-  <div class="code-search-inner">
-    <p class="eyebrow">FIND YOUR KICK</p>
-    <h2>SEARCH THE VAELT ARCHIVE</h2>
-    <p class="lead">Enter a VAELT code to discover the story, details, condition and authenticity information behind your pair.</p>
 
-    <form id="codeForm">
-      <input id="codeInput" placeholder="Enter VAELT code — e.g. VAELT-001" autocomplete="off">
-      <button type="submit" class="search-btn">SEARCH</button>
-    </form>
-
-    <p id="searchMessage" class="search-note">Every pair has a story.</p>
-  </div>
-</section>
 
 <section id="categories" class="categories">
   <h3 class="categories-heading">EXPLORE THE COLLECTION</h3>
