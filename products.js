@@ -30,7 +30,7 @@ const products = [
     size: "UK 9",
     condition: "Excellent",
     image: "images/nike-af1.jpg",
-    gallery: ["images/nike-af1.jpg","images/3171-166338953_medium.mp4"],
+    gallery: ["images/nike-af1.jpg","videos/3171-166338953_medium.mp4"],
     description: "Preloved Nike running shoes in excellent condition. Clean upper with comfortable cushioning and good outsole grip."
   },
   {
