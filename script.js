@@ -102,7 +102,10 @@ function renderProductPage() {
           <div><span>CODE</span><strong>${p.code}</strong></div>
         </div>
         <p>${p.description}</p>
-        <a class="order-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask [...]
+        <div class="action-buttons">
+          <a class="order-btn instagram-btn" href="https://www.instagram.com/direct/t/18085834331276429/" target="_blank" onclick="alert('Hi VAELT 👋 I\'m interested in this pair. Is it still available? 👟\n\nProduct: ${p.brand} ${p.name}\nCode: ${p.code}')">Ask on Instagram 📸</a>
+          <a class="order-btn whatsapp-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(`Hi VAELT, I am interested in ${p.brand} ${p.name} (${p.code}). Is it available?`)}" target="_blank">Ask on WhatsApp</a>
+        </div>
         <p class="no-payment">No online payment required. Contact VAELT to order.</p>
       </div>
     </div>`;
@@ -127,7 +130,7 @@ function setupReturnPolicy() {
 
   const policyHtml = `
     <p>All sales are final.</p>
-    <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirmed.</p>
+    <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirmed.[...]
     <p>Please carefully check the product details, size, condition, and photos before placing your order. If you have any questions about a product, feel free to contact us before purchasing.</p>
   `;
 
