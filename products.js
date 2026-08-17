@@ -23,14 +23,14 @@ const STORE = {
 const products = [
   {
     code: "VAELT-001",
-    brand: "Nike",
-    name: "Air Runner",
+    brand: "gandu",
+    name: "ghulam chor",
     category: "running",
-    price: 2500,
-    size: "UK 9",
+    price: "500",
+    size: "6 foot",
     condition: "Excellent",
-    image: "images/nike-af1.jpg",
-    gallery: ["images/nike-af1.jpg"],
+    image: "images/Capture.PNG",
+    gallery: ["images/Capture.PNG"],
     description: "Preloved Nike running shoes in excellent condition. Clean upper with comfortable cushioning and good outsole grip."
   },
   {
