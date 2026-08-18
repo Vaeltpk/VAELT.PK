@@ -6,7 +6,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,Arial,sans-serif;background:#fff;color:#0b0b0b;line-height:1.5}
+body{font-family:Inter,Arial,sans-serif;background:#525252;color:#0b0b0b;line-height:1.5}
 a{text-decoration:none;color:inherit}
 button,input{font:inherit}
 .section-shell{width:min(1240px,calc(100% - 64px));margin:auto}
