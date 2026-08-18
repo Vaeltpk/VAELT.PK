@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>VAELT — Product</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .product-site-header {
+      position: sticky !important;
+      top: 0;
+      background: rgba(8,8,8,.96) !important;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.12) !important;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+    .product-site-header .logo { color:#fff !important; }
+    .product-site-header .contact-btn {
+      border-color: rgba(255,255,255,.35) !important;
+      color:#fff !important;
+      background:transparent !important;
+    }
+    .product-site-header .contact-btn:hover {
+      background:#fff !important;
+      color:#111 !important;
+    }
+    .product-page {
+      max-width: 1240px;
+      padding: 42px 24px 90px;
+    }
+    .product-layout {
+      gap: 70px;
+      align-items: start;
+    }
+    .main-photo {
+      border-radius: 18px;
+      background: #f4f4f4;
+      box-shadow: 0 20px 60px rgba(0,0,0,.08);
+    }
+    .thumbs button {
+      border-radius: 10px;
+      background:#f4f4f4;
+    }
+    .product-info {
+      padding-top: 10px;
+    }
+    .product-info > span {
+      letter-spacing:.16em;
+    }
+    .product-info h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: .98;
+      letter-spacing:-.045em;
+      margin:14px 0 18px;
+    }
+    .big-price {
+      font-size: 30px;
+      margin: 0 0 30px;
+    }
+    .specs {
+      border-top:1px solid var(--border);
+      padding-top:22px;
+      padding-bottom:22px;
+    }
+    .specs div {
+      padding: 10px 8px;
+      background:#fafafa;
+      border-radius:8px;
+    }
+    .product-description-label {
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.16em;
+      margin-bottom:8px;
+      color:#111;
+    }
+    .action-buttons {
+      margin-top: 28px;
+    }
+    .order-btn {
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:8px;
+    }
+    .product-note {
+      margin-top:18px;
+      padding:15px 16px;
+      border:1px solid var(--border);
+      border-radius:8px;
+      font-size:12px;
+      color:#666;
+      line-height:1.6;
+    }
+    @media(max-width:768px) {
+      .product-page { padding:25px 16px 60px; }
+      .product-layout { gap:30px; }
+      .product-info { padding-top:0; }
+      .product-info h1 { font-size:38px; }
+      .big-price { font-size:25px; margin-bottom:22px; }
+      .specs { grid-template-columns:repeat(3,1fr) !important; gap:7px; }
+      .specs div { padding:10px 4px; }
+      .specs strong { font-size:11px; }
+      .specs span { font-size:9px; }
+      .thumbs button { width:65px; height:65px; }
+    }
+    @media(max-width:430px) {
+      .specs { grid-template-columns:1fr !important; }
+      .product-info h1 { font-size:34px; }
+    }
+  </style>
+</head>
+<body>
+<header class="header product-site-header">
+  <div class="logo-container">
+    <a class="logo" href="index.html">VAELT.PK<span>.</span></a>
+  </div>
+  <div class="header-actions">
+    <a href="https://www.instagram.com/vaelt.pk/" target="_blank" rel="noopener" class="contact-btn">Instagram</a>
+    <a href="index.html#shop" class="contact-btn">Shop</a>
+  </div>
+</header>
+
+<main id="productPage" class="product-page"></main>
+
+<footer>
+  <div class="footer-brand">
+    <strong>VAELT.PK</strong>
+    <p>Old Kicks. New Energy.</p>
+  </div>
+  <div>
+    <h4>CONTACT</h4>
+    <a href="https://www.instagram.com/vaelt.pk/" target="_blank" rel="noopener">Instagram</a>
+    <div class="footer-email">Vaelt.pk@gmail.com</div>
+    <a href="https://wa.me/923351295731" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div>
+    <h4>STORE</h4>
+    <a href="index.html#shop">All shoes</a>
+    <a href="index.html#about">About VAELT</a>
+  </div>
+  <p class="copyright">© 2026 VAELT. All rights reserved.</p>
+</footer>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

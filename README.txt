@@ -1,16 +1,27 @@
-VAELT STORE - QUICK EDIT GUIDE
+VAELT PRODUCT DETAIL UPDATE
 
-1. Open products.js.
-2. Each object is one product.
-3. Change code, brand, name, category, price, size, condition and description.
-4. Put your real pictures inside the images folder.
-5. Change image: and gallery: to the exact filenames.
-6. Every code must be unique.
-7. Change STORE.phone and STORE.displayPhone to your own contact number.
-8. Open index.html to test the website.
+Files included:
+- product.html
+- products.js
+- script.js
 
-IMPORTANT:
-The included shoe images are SAMPLE PLACEHOLDERS. Replace them with photos you own/have permission to use.
-No payment system is included.
-Clicking a product opens product.html with its code.
-Searching an exact VAELT code opens that product.
+Keep your existing:
+- index.html
+- style.css
+- images/ folder
+
+INSTALL:
+1. Replace your current products.js with the included products.js.
+2. Replace your current script.js with the included script.js.
+3. Upload product.html into the same folder as index.html.
+4. Keep your existing style.css.
+5. Keep your images folder in the same location.
+6. Open index.html and click a product.
+7. The product opens at product.html?code=VAELT-001 (or the selected code).
+8. WhatsApp opens with the product name and exact product code automatically.
+
+WhatsApp:
++92 335 1295731
+
+Instagram:
+https://www.instagram.com/vaelt.pk/
