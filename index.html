@@ -1,121 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090909">
-  <title>VAELT — Old Kicks. New Energy.</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VAELT - Thrift Sneakers</title>
+<link rel="stylesheet" href="style.css" />
+<!-- Font for headings -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Helvetica&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<header class="header header--overlay">
-  <a class="logo" href="index.html">VAELT<span>.</span></a>
-  <nav class="desktop-nav">
-    <a href="#shop">SHOP</a>
-    <a href="#about">ABOUT</a>
-    <a href="#categories">CATEGORIES</a>
-  </nav>
-  <div class="header-actions">
-    <a href="https://www.instagram.com/vaelt.pk/" target="_blank" rel="noopener" class="icon-link instagram-header" aria-label="Instagram">◎</a>
-    <a id="contactTop" href="https://wa.me/923351295731" target="_blank" rel="noopener" class="outline-btn">CONTACT</a>
+<!-- Navigation -->
+<header class="header">
+  <div class="nav-container">
+    <div class="nav-left">
+      <h1 class="logo">VAELT</h1>
+      <p class="tagline">Old Kicks. New Energy.</p>
+    </div>
+    <nav class="nav-center">
+      <a href="#hero">HOME</a>
+      <a href="#products">SHOP</a>
+      <a href="#about">ABOUT</a>
+      <a href="#how">HOW TO ORDER</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="nav-right">
+      <a class="instagram-link" href="https://www.instagram.com/vaelt.pk/" target="_blank" rel="noopener noreferrer">
+        ASK ON INSTAGRAM →
+      </a>
+      <button class="cart-btn" aria-label="Shopping Cart">
+        🛍️
+      </button>
+    </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero__bg"></div>
-  <div class="hero__overlay"></div>
-  <div class="hero__content">
-    <p class="eyebrow">PRELOVED • AUTHENTICITY-FIRST</p>
-    <h1>Old Kicks.<br><em>New Energy.</em></h1>
-    <p class="hero-copy">Curated branded footwear, inspected and listed with a unique VAELT code.</p>
-    <a class="hero-btn" href="#shop">EXPLORE COLLECTION <span>↗</span></a>
+<!-- Hero Section -->
+<section id="hero" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <small class="hero-subtext">CURATED THRIFT SNEAKERS</small>
+      <h2 class="hero-title">VAELT</h2>
+      <p class="hero-tagline">Old Kicks. New Energy.</p>
+      <p class="hero-description">
+        Curated thrift sneakers.<br/>
+        Original brands. Real style.<br/>
+        Better for you, better for the planet.
+      </p>
+      <button class="btn btn-primary" data-scroll="#products">SHOP COLLECTION</button>
+    </div>
+    <div class="hero-badge">THRIFTED • AUTHENTIC • CURATED</div>
   </div>
+</section>
 
-  <div class="hero__info">
-    <div class="hero__info-inner">
-      <div class="hero__info-item"><span class="info-symbol">✓</span><div><small>AUTHENTICITY</small><strong>VERIFIED</strong></div></div>
-      <div class="hero__info-item"><span class="info-symbol">✦</span><div><small>PRELOVED</small><strong>QUALITY</strong></div></div>
-      <div class="hero__info-item"><span class="info-symbol">◌</span><div><small>SUSTAINABLE</small><strong>CHOICE</strong></div></div>
-      <div class="hero__info-item"><span class="info-symbol">◉</span><div><small>HANDPICKED</small><strong>KICKS</strong></div></div>
+<!-- Benefits Section -->
+<section class="benefits" id="benefits">
+  <div class="benefits-grid">
+    <div class="benefit">
+      <div class="icon icon-authentic"></div>
+      <h3>AUTHENTIC BRANDS</h3>
+      <p>Carefully inspected for originality.</p>
+    </div>
+    <div class="benefit">
+      <div class="icon icon-sustainable"></div>
+      <h3>SUSTAINABLE CHOICE</h3>
+      <p>Pre-loved sneakers, lower impact.</p>
+    </div>
+    <div class="benefit">
+      <div class="icon icon-quality"></div>
+      <h3>QUALITY CHECKED</h3>
+      <p>10-point inspection on every pair.</p>
+    </div>
+    <div class="benefit">
+      <div class="icon icon-care"></div>
+      <h3>MADE WITH CARE</h3>
+      <p>Cleaned, restored & ready to wear.</p>
     </div>
   </div>
 </section>
 
-<section class="code-search">
-  <div class="section-narrow">
-    <p class="eyebrow dark">FIND YOUR KICK</p>
-    <h2>SEARCH THE VAELT ARCHIVE</h2>
-    <p>Enter a VAELT code to discover the story, details, condition and authenticity information behind your pair.</p>
-    <form id="codeForm">
-      <input id="codeInput" placeholder="VAELT-001" autocomplete="off">
-      <button type="submit">SEARCH ↗</button>
-    </form>
-    <div id="searchMessage">Every pair has a story.</div>
+<!-- Featured Products -->
+<section id="products" class="products-section">
+  <div class="section-header">
+    <h2>FEATURED PICKS</h2>
+    <a href="#all-products" class="view-all-btn">VIEW ALL →</a>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- Product Search -->
+<section class="search-section" id="search-section">
+  <div class="search-container">
+    <h3>Search Products</h3>
+    <input type="text" id="search-input" placeholder="Search by name or code..." />
+    <div id="search-results"></div>
   </div>
 </section>
 
-<section id="categories" class="categories">
-  <div class="section-shell">
-    <div class="section-kicker">THE COLLECTION</div>
-    <h2>Explore the edit.</h2>
-    <div class="filter-row">
-      <button class="filter active" data-category="all">ALL</button>
-      <button class="filter" data-category="sneakers">SNEAKERS</button>
-      <button class="filter" data-category="running">RUNNING</button>
-      <button class="filter" data-category="casual">CASUAL</button>
-      <button class="filter" data-category="formal">FORMAL</button>
+<!-- About VAELT -->
+<section id="about" class="about-section">
+  <div class="about-content">
+    <div class="about-text">
+      <h3>ABOUT VAELT</h3>
+      <p>
+        VAELT is a thrift store for those who value style, quality, and sustainability. We handpick authentic branded sneakers, inspect them carefully, and bring them to you at fair prices.
+      </p>
+      <p>Each pair has a story. Let's keep the good ones going.</p>
+      <button class="btn btn-secondary" id="learn-more-btn">LEARN MORE</button>
+    </div>
+    <div class="about-images">
+      <!-- Placeholder collage images -->
+      <img src="images/hero.jpg" alt="Sneakers lifestyle" loading="lazy" />
+      <img src="images/product-1.jpg" alt="Sneakers" loading="lazy" />
+      <img src="images/product-2.jpg" alt="Sneakers" loading="lazy" />
     </div>
   </div>
 </section>
 
-<main id="shop" class="shop section-shell">
-  <div class="shop-head">
-    <div>
-      <div class="section-kicker">THE EDIT</div>
-      <h2>Latest drops</h2>
+<!-- How to Order -->
+<section id="how" class="how-section">
+  <h3>HOW TO ORDER</h3>
+  <div class="how-steps">
+    <div class="step">
+      <h4>01 — FIND YOUR PAIR</h4>
+      <p>Browse the available sneakers and note the product code.</p>
     </div>
-    <span id="count"></span>
-  </div>
-  <div id="productsGrid" class="products-grid"></div>
-</main>
-
-<section id="about" class="about section-shell">
-  <div class="about-watermark">VAELT</div>
-  <div class="about-header">
-    <p class="eyebrow dark">THE VAELT STANDARD</p>
-    <h2>Not just a pair.<br><em>A piece of the story.</em></h2>
-    <div class="about-line"></div>
-    <p class="about-intro">VAELT is built around carefully selected pre-loved footwear. Every pair is inspected, documented and given its own identity — so you know exactly what you're getting.</p>
-  </div>
-  <div class="about-features">
-    <div class="about-feature"><span>01</span><b>✓</b><h3>VERIFIED</h3><p>Every pair is carefully checked before it becomes part of VAELT.</p></div>
-    <div class="about-feature"><span>02</span><b>↻</b><h3>PRE-LOVED</h3><p>Good shoes deserve another chapter. We give quality pairs a second life.</p></div>
-    <div class="about-feature"><span>03</span><b>◎</b><h3>INDIVIDUAL</h3><p>Every listing has its own VAELT code, condition details and photos.</p></div>
+    <div class="step">
+      <h4>02 — CONTACT VAELT</h4>
+      <p>Send us the product code through Instagram or WhatsApp.</p>
+    </div>
+    <div class="step">
+      <h4>03 — CONFIRM YOUR ORDER</h4>
+      <p>We'll confirm availability, size, price and delivery details.</p>
+    </div>
+    <div class="step">
+      <h4>04 — RECEIVE YOUR PAIR</h4>
+      <p>Available through Cash on Delivery where applicable.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-brand"><strong>VAELT.</strong><p>Old Kicks. New Energy.</p></div>
-  <div><h4>CONTACT</h4><a href="https://www.instagram.com/vaelt.pk/" target="_blank">Instagram</a><a href="https://wa.me/923351295731" target="_blank">WhatsApp</a><span>Vaelt.pk@gmail.com</span></div>
-  <div><h4>STORE</h4><a href="#shop">All shoes</a><a href="#about">About VAELT</a></div>
-  <div><h4>POLICIES</h4><a id="returnPolicyLink" href="#">Return Policy</a></div>
-  <p class="copyright">© 2026 VAELT. All rights reserved.</p>
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h3>CONTACT VAELT</h3>
+  <p>Instagram: <a href="https://www.instagram.com/vaelt.pk/" target="_blank" rel="noopener noreferrer">@vaelt.pk</a></p>
+  <a class="btn btn-secondary" href="https://www.instagram.com/vaelt.pk/" target="_blank" rel="noopener noreferrer">MESSAGE ON INSTAGRAM →</a>
+  <p>WhatsApp: <a href="https://wa.me/923351295731" target="_blank" rel="noopener noreferrer">+92 335 1295731</a></p>
+  <a class="btn btn-secondary" href="https://wa.me/923351295731" target="_blank" rel="noopener noreferrer">CHAT ON WHATSAPP →</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h4>VAELT</h4>
+      <p>Old Kicks. New Energy.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#how">How to Order</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-policies">
+      <h5>Policies</h5>
+      <ul>
+        <li>Terms & Conditions</li>
+        <li>Privacy Policy</li>
+        <li>No Return Policy</li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h5>Contact</h5>
+      <p>WhatsApp: +92 335 1295731</p>
+      <p>Instagram: @vaelt.pk</p>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <p>© 2026 VAELT. All rights reserved.</p>
+  </div>
 </footer>
 
-<div id="returnPolicyModal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal">
-    <button id="returnPolicyClose" class="modal-close">×</button>
-    <p class="eyebrow dark">VAELT POLICY</p>
-    <h2>Return Policy</h2>
-    <p><strong>All sales are final.</strong></p>
-    <p>VAELT is a thrift store offering pre-owned and carefully inspected footwear. Due to the nature of thrifted products, we do not accept returns or exchanges once an order has been confirmed.</p>
-    <p>Please carefully check product details, size, condition and photos before purchasing. Contact us before ordering if you have any questions.</p>
+<!-- Product Modal -->
+<div id="product-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <button class="close-modal" aria-label="Close modal">&times;</button>
+    <div class="modal-body">
+      <!-- dynamically filled -->
+    </div>
   </div>
 </div>
 
-<script src="products.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
