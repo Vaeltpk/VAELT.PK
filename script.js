@@ -1,10 +1,187 @@
-const money=n=>`Rs. ${Number(n).toLocaleString("en-PK")}`;
-function setupContact(){document.querySelectorAll("#contactTop,#contactFooter").forEach(el=>{el.href=`https://wa.me/${STORE.phone}`})}
-function productCard(p){return `<article class="card"><a href="product.html?code=${encodeURIComponent(p.code)}" class="card-image"><img src="${p.image}" alt="${p.brand} ${p.name}" loading="lazy"><span class="condition">${p.condition}</span></a><div class="card-info"><div><span class="brand">${p.brand}</span><span class="code">${p.code}</span></div><a href="product.html?code=${encodeURIComponent(p.code)}"><h3>${p.name}</h3></a><div class="meta"><span>${p.size}</span><strong>${money(p.price)}</strong></div></div></article>`}
-function renderProducts(list=products){const g=document.getElementById("productsGrid");if(!g)return;g.innerHTML=list.length?list.map(productCard).join(""):`<div class="empty">No product found.</div>`;const c=document.getElementById("count");if(c)c.textContent=`${list.length} products`}
-function findCode(code){return products.find(p=>p.code.toUpperCase()===(code||"").trim().toUpperCase())}
-function setupCodeSearch(){const f=document.getElementById("codeForm");if(!f)return;f.addEventListener("submit",e=>{e.preventDefault();const term=document.getElementById("codeInput").value.trim(),msg=document.getElementById("searchMessage");if(!/^VAELT-\d+$/i.test(term)){msg.textContent="Enter a valid VAELT code, e.g. VAELT-001.";return}const p=findCode(term);if(p)location.href=`product.html?code=${encodeURIComponent(p.code)}`;else msg.textContent="No product matches that code."})}
-function setupFilters(){document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");const c=b.dataset.category;renderProducts(c==="all"?products:products.filter(p=>p.category===c))}))}
-function renderProductPage(){const box=document.getElementById("productPage");if(!box)return;const p=findCode(new URLSearchParams(location.search).get("code"));if(!p){box.innerHTML=`<div class="not-found"><h1>Product not found</h1><p>Check the VAELT code.</p><a class="hero-btn" href="index.html#shop">BACK TO SHOP</a></div>`;return}const gallery=p.gallery?.length?p.gallery:[p.image],msg=`Hi VAELT 👋 I'm interested in ${p.brand} ${p.name}. Product Code: ${p.code}. Is it still available?`;box.innerHTML=`<div class="breadcrumbs"><a href="index.html">HOME</a> / <a href="index.html#shop">SHOP</a> / ${p.code}</div><div class="product-layout"><div class="gallery"><div class="main-photo"><img id="mainPhoto" src="${gallery[0]}" alt="${p.name}"></div><div class="thumbs">${gallery.map((img,i)=>`<button class="${i===0?"selected":""}" data-img="${img}"><img src="${img}" alt=""></button>`).join("")}</div></div><div class="product-info"><span>${p.brand} • ${p.code}</span><h1>${p.name}</h1><div class="big-price">${money(p.price)}</div><div class="specs"><div><span>SIZE</span><strong>${p.size}</strong></div><div><span>CONDITION</span><strong>${p.condition}</strong></div><div><span>CODE</span><strong>${p.code}</strong></div></div><p>${p.description}</p><div class="action-buttons"><a class="order-btn instagram-btn" href="${STORE.instagram}" target="_blank">ASK ON INSTAGRAM</a><a class="order-btn whatsapp-btn" href="https://wa.me/${STORE.phone}?text=${encodeURIComponent(msg)}" target="_blank">MESSAGE ON WHATSAPP</a></div><div class="product-note">Product code <strong>${p.code}</strong> is included in your WhatsApp message.</div></div></div>`;document.querySelectorAll(".thumbs button").forEach(b=>b.onclick=()=>{document.getElementById("mainPhoto").src=b.dataset.img;document.querySelectorAll(".thumbs button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected")});document.title=`VAELT — ${p.brand} ${p.name}`}
-function setupReturnPolicy(){const l=document.getElementById("returnPolicyLink"),m=document.getElementById("returnPolicyModal"),c=document.getElementById("returnPolicyClose");if(!l||!m)return;l.onclick=e=>{e.preventDefault();m.classList.add("open");m.setAttribute("aria-hidden","false")};c?.addEventListener("click",()=>m.classList.remove("open"));m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open")})}
-setupContact();setupCodeSearch();setupFilters();renderProducts();renderProductPage();setupReturnPolicy();
+// Product data array
+const products = [
+  {
+    code: "VA001",
+    name: "Adidas Samba OG",
+    brand: "Adidas",
+    size: "42",
+    price: 4200,
+    condition: "Excellent",
+    image: "images/product-1.jpg",
+    description: "Clean pre-owned pair in excellent condition."
+  },
+  {
+    code: "VA002",
+    name: "New Balance 530",
+    brand: "New Balance",
+    size: "43",
+    price: 5500,
+    condition: "Good",
+    image: "images/product-2.jpg",
+    description: "Pre-loved pair with minimal wear."
+  },
+  {
+    code: "VA003",
+    name: "Converse Chuck 70",
+    brand: "Converse",
+    size: "42",
+    price: 3800,
+    condition: "Very Good",
+    image: "images/product-3.jpg",
+    description: "Vintage style, well maintained."
+  },
+  {
+    code: "VA004",
+    name: "Nike Air Force 1 '07",
+    brand: "Nike",
+    size: "43",
+    price: 5200,
+    condition: "Excellent",
+    image: "images/product-4.jpg",
+    description: "Classic white sneakers, pre-owned."
+  },
+  {
+    code: "VA005",
+    name: "Vans Old Skool",
+    brand: "Vans",
+    size: "42",
+    price: 3200,
+    condition: "Good",
+    image: "images/product-5.jpg",
+    description: "Casual vintage sneakers."
+  }
+];
+
+// Generate product cards
+const productGrid = document.getElementById('product-grid');
+
+function renderProducts() {
+  productGrid.innerHTML = '';
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.dataset.code = product.code;
+
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" />
+      <div class="product-info">
+        <div><strong>${product.name}</strong></div>
+        <div>Size: ${product.size}</div>
+        <div>Code: ${product.code}</div>
+        <div class="product-price">Rs. ${product.price.toLocaleString()}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openProductModal(product));
+    productGrid.appendChild(card);
+  });
+}
+
+// Open modal with product details
+const modal = document.getElementById('product-modal');
+const modalBody = modal.querySelector('.modal-body');
+
+function openProductModal(product) {
+  modal.classList.remove('hidden');
+  modalBody.innerHTML = `
+    <img src="${product.image}" alt="${product.name}" style="width:100%; max-height:400px; object-fit:cover; border-radius:4px;" />
+    <h2 style="margin-top:1rem;">${product.name}</h2>
+    <p><strong>Brand:</strong> ${product.brand}</p>
+    <p><strong>Size:</strong> ${product.size}</p>
+    <p><strong>Code:</strong> ${product.code}</p>
+    <p><strong>Condition:</strong> ${product.condition}</p>
+    <p><strong>Price:</strong> Rs. ${product.price.toLocaleString()}</p>
+    <p><strong>Description:</strong> ${product.description}</p>
+    <button class="btn btn-primary" id="ask-instagram" data-code="${product.code}" data-name="${product.name}">ASK ON INSTAGRAM</button>
+  `;
+  document.getElementById('ask-instagram').addEventListener('click', () => {
+    const msg = `Hi VAELT, I'm interested in product ${product.code} — ${product.name}. Is it still available?`;
+    window.open(`https://www.instagram.com/vaelt.pk/`, '_blank', 'noopener noreferrer');
+  });
+}
+
+// Close modal
+document.querySelector('.close-modal').addEventListener('click', () => {
+  modal.classList.add('hidden');
+});
+window.addEventListener('click', (e) => {
+  if (e.target === modal) modal.classList.add('hidden');
+});
+
+// Scroll buttons
+document.querySelectorAll('[data-scroll]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.querySelector(btn.dataset.scroll);
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchResultsContainer = document.getElementById('search-results');
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    searchResultsContainer.innerHTML = '';
+    return;
+  }
+  const results = products.filter(p => 
+    p.name.toLowerCase().includes(query) || p.code.toLowerCase().includes(query)
+  );
+  if (results.length === 0) {
+    searchResultsContainer.innerHTML = '<p>No product found. Please check the product code.</p>';
+  } else {
+    searchResultsContainer.innerHTML = results.map(p => `
+      <div class="search-result" data-code="${p.code}">${p.name} (${p.code})</div>
+    `).join('');
+    document.querySelectorAll('.search-result').forEach(item => {
+      item.addEventListener('click', () => {
+        const code = item.dataset.code;
+        const product = products.find(p => p.code === code);
+        if (product) {
+          openProductModal(product);
+        }
+      });
+    });
+  }
+});
+
+// "Learn More" button
+document.getElementById('learn-more-btn').addEventListener('click', () => {
+  document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Sticky nav background change
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    document.querySelector('.header').style.backgroundColor = 'rgba(0,0,0,1)';
+  } else {
+    document.querySelector('.header').style.backgroundColor = 'rgba(0,0,0,0.9)';
+  }
+});
+
+// Hamburger menu for mobile
+// (Optional: can be added for full mobile responsiveness. Omitted for brevity here, but can be added if needed)
+
+// Animations on scroll (fade-in)
+const faders = document.querySelectorAll('.benefits, .products-section, .about-section, .how-section, .contact-section, footer');
+const appearOptions = {
+  threshold: 0,
+  rootMargin: "0px 0px -50px 0px"
+};
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('appear');
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => {
+  fader.classList.add('hidden');
+  appearOnScroll.observe(fader);
+});
+
+// Animate benefit items
+document.querySelectorAll('.benefit').forEach((el, index) => {
+  el.style.transitionDelay = `${index * 0.2}s`;
+});
