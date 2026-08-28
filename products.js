@@ -8,7 +8,7 @@ const products = [
     size: "42",
     price: 4200,
     condition: "Excellent",
-    image: "images/product-1.jpg",
+    image: "images/nike-af1.jpg",
     description: "Clean pre-owned pair in excellent condition."
   },
   {
