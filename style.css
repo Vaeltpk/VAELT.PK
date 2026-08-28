@@ -26,3 +26,313 @@ button,input{font:inherit}
 .footer{background:#10100f;border-top:1px solid var(--line);padding:65px 5vw 25px}.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}.footer-logo{font-family:var(--heading);font-size:52px}.footer-grid h4{font-size:9px;letter-spacing:2px;margin-bottom:12px}.footer-grid p,.footer-grid a{display:block;color:var(--muted);font-size:10px;margin-bottom:7px}.footer-bottom{max-width:1400px;margin:45px auto 0;padding-top:18px;border-top:1px solid var(--line);text-align:center;color:#666;font-size:8px}
 @media(max-width:900px){.nav-center{display:none}.menu-btn{display:block}.nav-center.open{position:absolute;top:75px;left:20px;right:20px;display:flex;flex-direction:column;gap:0;background:rgba(12,12,11,.96);border:1px solid var(--line);padding:10px}.nav-center.open a{padding:13px}.product-grid{grid-template-columns:repeat(3,1fr)}.benefits{grid-template-columns:1fr 1fr}.benefit:nth-child(2){border-right:0}.about-section{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.header{padding:16px 20px}.logo{font-size:27px}.hero{min-height:100svh;height:100svh}.hero-image{object-position:58% center}.hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.86))}.hero-content{padding:100px 25px 35px;align-items:flex-end}.hero h1{font-size:clamp(65px,22vw,100px)}.hero-badge{display:none}.benefits{padding:25px 20px}.benefit{padding:18px 10px}.benefit-icon{width:34px;height:34px}.product-grid{grid-template-columns:repeat(2,1fr);gap:7px}.products-section,.search-section,.about-section,.how-section,.contact-section{padding-left:20px;padding-right:20px}.section-heading h2{font-size:28px}.about-images{grid-template-columns:1fr}.about-images>img{height:300px}.about-small{grid-template-columns:1fr 1fr}.image-placeholder{height:145px}.how-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.instagram-pill{display:none}}
+
+/* =========================================================
+   VAELT — PREMIUM PRODUCT DETAIL PAGE
+   ========================================================= */
+
+/* Product Detail Section */
+.product-detail-section {
+  padding-top: 150px;
+  padding-bottom: 120px;
+  min-height: 80vh;
+}
+
+/* Back to Shop */
+.back-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 45px;
+  color: var(--text, #111);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  transition: opacity 0.25s ease;
+}
+
+.back-shop:hover {
+  opacity: 0.55;
+}
+
+/* Main Product Layout */
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: 80px;
+  align-items: start;
+}
+
+/* Product Image */
+.detail-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #f1f1ef;
+}
+
+/* Product Information */
+.detail-copy {
+  padding-top: 15px;
+  max-width: 540px;
+}
+
+/* Small Label */
+.detail-copy .eyebrow {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: var(--muted, #777);
+}
+
+/* Product Name */
+.detail-copy h1 {
+  margin: 0;
+  font-family: var(--heading, "Playfair Display", serif);
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -2px;
+  color: var(--text, #111);
+}
+
+/* Brand */
+.detail-brand {
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted, #777);
+}
+
+/* Product Meta */
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 40px 0 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.detail-meta span {
+  padding: 18px 12px;
+  font-size: 9px;
+  line-height: 1.7;
+  letter-spacing: 1.5px;
+  color: var(--muted, #777);
+}
+
+.detail-meta span + span {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.detail-meta strong {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--text, #111);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+/* Price */
+.detail-price {
+  margin-top: 5px;
+  font-family: var(--heading, "Playfair Display", serif);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text, #111);
+}
+
+/* Condition Label */
+.detail-condition {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+/* Description */
+.detail-description {
+  margin: 30px 0 0;
+  max-width: 500px;
+  color: var(--muted, #666);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* Action Buttons */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+/* Buttons */
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 15px 18px;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.action:hover {
+  background: transparent;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+/* Notice */
+.notice {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-left: 2px solid #111;
+  background: rgba(0, 0, 0, 0.035);
+  color: var(--muted, #666);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   PRODUCT IMAGE HOVER
+   ========================================================= */
+
+.detail-image {
+  transition: transform 0.5s ease;
+}
+
+.product-detail > .detail-image:hover {
+  transform: scale(1.015);
+}
+
+
+/* =========================================================
+   PRODUCT NOT FOUND
+   ========================================================= */
+
+.product-detail > div[style] {
+  padding: 100px 20px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .product-detail-section {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .detail-copy {
+    max-width: none;
+    padding-top: 0;
+  }
+
+  .detail-copy h1 {
+    font-size: clamp(40px, 11vw, 58px);
+  }
+
+  .detail-image {
+    aspect-ratio: 1 / 1;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .product-detail-section {
+    padding-top: 105px;
+    padding-bottom: 60px;
+  }
+
+  .back-shop {
+    margin-bottom: 25px;
+    font-size: 10px;
+  }
+
+  .detail-copy .eyebrow {
+    margin-bottom: 15px;
+    font-size: 9px;
+  }
+
+  .detail-copy h1 {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+  }
+
+  .detail-brand {
+    font-size: 11px;
+    margin-top: 12px;
+  }
+
+  .detail-meta {
+    margin: 28px 0 24px;
+  }
+
+  .detail-meta span {
+    padding: 14px 8px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .detail-meta strong {
+    font-size: 11px;
+  }
+
+  .detail-price {
+    font-size: 28px;
+  }
+
+  .detail-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .action {
+    min-height: 50px;
+  }
+
+  .notice {
+    font-size: 10px;
+  }
+
+}
