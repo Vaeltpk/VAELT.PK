@@ -1,0 +1,1 @@
+Put your product photos in this folder. Name them product-1.jpg, product-2.jpg, etc., or change the image filename in products.js.
