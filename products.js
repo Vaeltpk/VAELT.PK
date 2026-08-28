@@ -27,7 +27,7 @@ const products = [
     size: "42",
     price: 4200,
     condition: "Excellent",
-    image: "images/product-1.jpg",
+    image: "images/images (3).jfif",
     description: "Clean pre-owned pair. Please inspect all photos and details before ordering."
   },
   {
